@@ -11,8 +11,15 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    binding.pry
-    user == current_user || user.admin?
+    user == note || user.admin?
+  end
+
+  def update?
+    user.admin?
+  end
+
+  def destroy?
+    user.admin?
   end
 
 end
