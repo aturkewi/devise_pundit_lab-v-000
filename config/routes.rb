@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users' => 'users#index', as: 'users'
+  get 'users/:id' => 'users#show', as: 'user'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
