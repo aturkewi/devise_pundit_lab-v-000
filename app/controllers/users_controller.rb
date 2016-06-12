@@ -7,11 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    if current_user.show?(@user)
-      @user = current_user
-    else
-      flash[:alert] = "Access denied."
-    end
+    @user = User.find params[:id]
+    authorize @user
   end
 end
